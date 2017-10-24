@@ -79,6 +79,12 @@ class Game extends React.Component {
     });
   }
 
+  toggleSort() {
+    this.setState({
+      ascending: !this.state.ascending,
+    });
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -116,6 +122,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <button onClick={() => this.toggleSort()}>Toggle</button>
           <ul>{displayedMoves}</ul>
         </div>
       </div>
@@ -148,7 +155,7 @@ function calculateWinner(squares) {
   1. Display the move locations in the format “(1, 3)” in the move list. DONE
   2. Bold the currently selected item in the move list. DONE
   3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-  4. Add a toggle button that lets you sort the moves in either ascending or descending order.
+  4. Add a toggle button that lets you sort the moves in either ascending or descending order. DONE
   5. When someone wins, highlight the three squares that caused the win. DONE
 */
 
